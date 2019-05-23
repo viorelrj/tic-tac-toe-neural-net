@@ -28,13 +28,14 @@ class Intelligence:
         # Convert board state into neural network input layer model, described in the header of the file
         input_layer = np.zeros(27)
         for cell, state in enumerate(board):
-            input_layer[cell * 3 + state] = 1
+            input_layer[np.int(cell * 3 + state)] = 1
 
         hidden_layer = np.zeros(10)
         for i in range(0, len(hidden_layer)):
             hidden_layer[i] = self.sigmoid(np.dot(input_layer, self.weights[i]))
 
-        self.choice = np.argmax(hidden_layer)
+        return np.argmax(hidden_layer)
+
 
 
     def learn(self, board):

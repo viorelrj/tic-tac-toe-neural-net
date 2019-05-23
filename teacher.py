@@ -13,7 +13,7 @@ def load_weights(name):
     return weights
 
 def teach(instance, output, iterations):
-    pbar = Bar("Learning ...", max = iterations)
+    pbar = Bar("The neural net is learning ...", max = iterations)
     for i in range(0, iterations):
         board = np.random.randint(0, 3, 9)
         instance.learn(board)
